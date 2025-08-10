@@ -1,69 +1,20 @@
-# 🚀 Script d'installation automatique de Zabbix 7.0 LTS sur Debian 12
+# ![GLPI Logo](https://glpi-project.org/wp-content/uploads/2022/05/logo-glpi.svg) GLPI – Installation & Utilisation 🧰  
 
-![Zabbix Logo](https://assets.zabbix.com/img/logo/zabbix_logo_500x131.png)
-
-## 📌 Description
-Ce script Bash installe et configure automatiquement **Zabbix 7.0 LTS** sur **Debian 12.5** avec **MariaDB** et l’interface Web.  
-Il est basé sur les bonnes pratiques décrites dans la documentation et permet de déployer un serveur Zabbix fonctionnel en quelques minutes.
-
----
-
-## 🛠️ Fonctionnalités
-- Installation des paquets nécessaires (Zabbix server, frontend PHP, agent, MariaDB)
-- Configuration et sécurisation de la base de données
-- Importation du schéma SQL de Zabbix
-- Configuration automatique du mot de passe BDD dans `zabbix_server.conf`
-- Démarrage et activation des services
-- Message de fin avec URL et identifiants par défaut
+![OS](https://img.shields.io/badge/OS-Debian%2011%2F12%20|%20Ubuntu%2020.04%2F22.04-blue)  
+![Status](https://img.shields.io/badge/Status-Lab%20Ready-success)  
+![License](https://img.shields.io/badge/License-MIT-green)  
+![Stack](https://img.shields.io/badge/Stack-PHP%20|%20MariaDB%20|%20Nginx%2FApache-orange)  
 
 ---
 
-## 📂 Fichiers
-- `install_zabbix_debian12.sh` → Script principal d’installation
+## 📦 Pré-requis  
+- **OS** : Debian 11/12 ou Ubuntu 20.04/22.04  
+- **Paquets nécessaires** : `nginx` ou `apache2`, `mariadb-server`, `php`, `git`, `curl`  
+- Accès SSH à la machine
 
 ---
 
-## 📋 Prérequis
-- **Debian 12.5** (ou compatible)
-- Connexion Internet
-- Accès root ou utilisateur avec droits `sudo`
-- Port 80 ouvert pour l’interface Web
-
----
-
-## 🚀 Installation
-
-1. **Télécharger le script**
+## ⚙️ Installation rapide  
+1️⃣ **Connexion à la VM**  
 ```bash
-wget https://raw.githubusercontent.com/sbeteta42/zabbix/main/install_zabbix_debian12.sh
-chmod +x install_zabbix_debian12.sh
-```
-2. **Exécuter le script**
-```bash
-sudo ./install_zabbix_debian12.sh
-```
-## 🔧 Variables personnalisables
-Dans le script, vous pouvez modifier :
-```bash
-DB_USER="zabbix"
-DB_PASS="password"
-DB_NAME="zabbix"
-```
-⚠️ Changez le mot de passe avant une mise en production.
-
-## 🌐 Accès à l'interface Web
-Une fois l’installation terminée :
-```bash
-http://<IP_Machine>/zabbix
-```
-Identifiants par défaut :
-```bash
-Utilisateur : Admin
-Mot de passe : zabbix
-```
-📜 Licence
-Ce projet est sous licence MIT.
-
-🤝 Contributions
-Les contributions sont les bienvenues !
-N'hésitez pas à proposer des améliorations via Pull Request ou à signaler un problème via Issues.
+ssh user@<glpi_ip>
