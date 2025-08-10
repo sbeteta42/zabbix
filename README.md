@@ -12,8 +12,33 @@
 - **Paquets nécessaires** : `nginx` ou `apache2`, `mariadb-server`, `php`, `git`, `curl`  
 - Accès SSH à la machine
   
-
 ## ⚙️ Installation rapide  
 1️⃣ **Connexion à la VM**  
 ```bash
 ssh user@<glpi_ip>
+```
+2️⃣ Passer en root
+
+```bash
+su -
+```
+3️⃣ Installation via script
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/sbeteta42/glpi/main/install.sh | bash
+```
+🌐 Accès à GLPI
+Depuis le LAN :
+http://<glpi_ip>/
+
+🛠️ Post-installation
+🔒 Changer les mots de passe par défaut
+
+🗑️ Supprimer le dossier /install
+
+🔐 Configurer HTTPS si nécessaire
+
+💾 Mettre en place une sauvegarde régulière de la base et des fichiers
+
+📄 Documentation
+🌍 Site officiel GLPI
