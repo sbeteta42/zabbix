@@ -37,3 +37,33 @@ Il est basé sur les bonnes pratiques décrites dans la documentation et permet 
 ```bash
 wget https://raw.githubusercontent.com/sbeteta42/zabbix/main/install_zabbix_debian12.sh
 chmod +x install_zabbix_debian12.sh
+```
+2. **Exécuter le script**
+```bash
+sudo ./install_zabbix_debian12.sh
+```
+## 🔧 Variables personnalisables
+Dans le script, vous pouvez modifier :
+```bash
+DB_USER="zabbix"
+DB_PASS="password"
+DB_NAME="zabbix"
+```
+⚠️ Changez le mot de passe avant une mise en production.
+
+## 🌐 Accès à l'interface Web
+Une fois l’installation terminée :
+```bash
+http://<IP_Machine>/zabbix
+```
+Identifiants par défaut :
+```bash
+Utilisateur : Admin
+Mot de passe : zabbix
+```
+📜 Licence
+Ce projet est sous licence MIT.
+
+🤝 Contributions
+Les contributions sont les bienvenues !
+N'hésitez pas à proposer des améliorations via Pull Request ou à signaler un problème via Issues.
