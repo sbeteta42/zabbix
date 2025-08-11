@@ -40,23 +40,23 @@ cd zabbix
 # Exécuter le script d’installation
 ./install-zabbix.sh
 ```
+---
 
-🔧 Configuration rapide
+## 🔧 Configuration rapide
 - Accéder à l’interface web Zabbix
 - Ajouter un agent Linux/Windows
 - Appliquer un template prédéfini à un hôte
 - Surveiller les métriques (CPU, mémoire, réseau…)
 
-🖥️ Usage basique
+## 🖥️ Usage basique
 UI Web : http://<zabbix_ip>/zabbix
 
 Logs : /var/log/zabbix/
 
 - Extensions : SNMP, proxy, scripts personnalisés
 
-📚 Support & Documentation
+## 📚 Support & Documentation
 Documentation officielle : https://www.zabbix.com/documentation
 
-📜 Licence
+## 📜 Licence
 Zabbix est distribué sous licence AGPL-3.0.
-
