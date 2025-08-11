@@ -38,7 +38,7 @@
 git clone https://github.com/sbeteta42/zabbix.git
 cd zabbix
 # Exécuter le script d’installation
-./install-zabbix.sh
+./install_zabbix_debian12.sh
 ```
 ---
 
