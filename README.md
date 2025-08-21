@@ -60,7 +60,7 @@ Identifiants par défaut :
 ```
 Utilisateur : Admin
 Mot de passe : zabbix
-
+```
 ## Vérifications post-installation
 - `systemctl status zabbix-server zabbix-agent apache2`
 - Vérifier l’accès Web et terminer l’assistant
