@@ -51,7 +51,7 @@ cd zabbix
 
 ## 🖥️ Usage basique
 UI Web : http://<zabbix_ip>/zabbix
-## Accès à l'interface Web
+## 🌐 Accès à l'interface Web
 URL après installation :
 
 http://<IP_Machine>/zabbix
@@ -61,17 +61,17 @@ Identifiants par défaut :
 Utilisateur : Admin
 Mot de passe : zabbix
 ```
-## Vérifications post-installation
+## 🔐 Vérifications post-installation
 - `systemctl status zabbix-server zabbix-agent apache2`
 - Vérifier l’accès Web et terminer l’assistant
 - Ajuster le fuseau horaire PHP/Apache si nécessaire
 
-## Dépannage rapide
+## 💡 Dépannage rapide
 - Problème d'accès Web : vérifier le port 80 (firewall, NAT)
 - Erreur DB `Access denied` : contrôler `DB_USER`, `DB_PASS`, `DB_NAME`
 - Agent non visible : vérifier `/etc/zabbix/zabbix_agentd.conf` (Server, ServerActive, Hostname)
 
-## Contributions
+## 📦 Contributions
 PR et issues bienvenues. Proposez vos améliorations, templates additionnels, ou scripts agents auto.
 
 ## 📚 Support & Documentation
