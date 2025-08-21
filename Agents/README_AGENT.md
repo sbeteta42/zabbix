@@ -1,40 +1,46 @@
-# Installation de l'agent Zabbix
+# Agents Zabbix (Linux Debian 12 & Windows)
 
-## 📌 Description
-Ce script installe et configure automatiquement un **agent Zabbix 7.0** sur un hôte Debian/Ubuntu pour être supervisé par un serveur Zabbix.
+Ce dossier contient des scripts pour déployer rapidement des **agents Zabbix 7.0** en mode actif/passif.
 
-## 📋 Prérequis
-- Système : Debian 12 / Ubuntu
-- Accès root ou sudo
-- IP du serveur Zabbix connue
-- Port 10050 ouvert (TCP) sur le client et le serveur
+## Debian 12
 
-## 🚀 Utilisation
+### Script
+- `install_zabbix_agent_debian12.sh`
 
-1. **Télécharger le script**
+### Usage
 ```bash
-wget https://raw.githubusercontent.com/<ton-user>/<ton-repo>/main/install_zabbix_agent_debian.sh
-chmod +x install_zabbix_agent_debian.sh
+sudo ./install_zabbix_agent_debian12.sh -s 192.168.1.104 -h srv-linux-01
+# Avec TLS PSK :
+sudo ./install_zabbix_agent_debian12.sh -s 192.168.1.104 -h srv-linux-01 -p <PSK_HEX> -n "PSK-SRV-LINUX-01"
 ```
 
-2. **Modifier l'IP du serveur Zabbix** dans le script si nécessaire :
-```bash
-ZBX_SERVER_IP="192.168.1.100"
+Le script :
+- ajoute le dépôt Zabbix 7.0,
+- installe `zabbix-agent`,
+- configure `Server`, `ServerActive`, `Hostname`,
+- (option) active **TLS PSK** si `-p` et `-n` sont fournis,
+- démarre et active le service.
+
+## Windows (PowerShell)
+
+### Script
+- `Install-ZabbixAgent-Windows.ps1`
+
+### Usage (Admin)
+```powershell
+powershell.exe -ExecutionPolicy Bypass -File .\Install-ZabbixAgent-Windows.ps1 -ServerIP 192.168.1.104 -Hostname WIN11 `
+  -MsiUrl https://cdn.zabbix.com/zabbix/binaries/stable/7.0/7.0.0/zabbix_agent-7.0.0-windows-amd64-openssl.msi
+# Avec TLS PSK :
+powershell.exe -ExecutionPolicy Bypass -File .\Install-ZabbixAgent-Windows.ps1 -ServerIP 192.168.1.104 -Hostname WIN11 `
+  -TlsPsk <PSK_HEX> -TlsPskIdentity "PSK-WIN11"
 ```
 
-3. **Exécuter le script**
-```bash
-sudo ./install_zabbix_agent_debian.sh
-```
+Remarques :
+- Ajustez l’URL `-MsiUrl` si une nouvelle version 7.0.x est publiée.
+- Le script ouvre le port **10050/TCP** dans le pare-feu Windows.
+- Le service **Zabbix Agent** est mis en **Automatic** et démarré.
 
-## 🌐 Vérification
-- Vérifier le statut du service :
-```bash
-systemctl status zabbix-agent
-```
-- Dans l'interface Zabbix, ajouter l'hôte avec :
-  - **Hostname** : celui du client
-  - **Template** : Linux by Zabbix agent active
-
-## 📜 Licence
-MIT — voir le fichier [LICENSE](LICENSE).
+## Bonnes pratiques
+- Préférez le mode **actif** (templates `* by Zabbix agent active`) pour les hôtes distants/NAT.
+- Utilisez **TLS PSK** ou **certificats** en production.
+- Enregistrez/liez automatiquement les hôtes avec des **Actions** côté serveur (conditions + opérations).
