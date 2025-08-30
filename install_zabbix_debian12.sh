@@ -6,6 +6,8 @@
 DB_USER="zabbix"
 DB_PASS="password"
 DB_NAME="zabbix"
+SERVER_IP=$(hostname -I | awk '{print $1}')
+
 
 # Ajout du dépôt Zabbix 7.0 pour Debian 12...
 echo "[1/8] ➤ Ajout du dépôt Zabbix 7.0 pour Debian 12..."
@@ -61,5 +63,5 @@ systemctl restart zabbix-server zabbix-agent apache2
 systemctl enable zabbix-server zabbix-agent apache2
 
 echo -e "Installation de Zabbix terminée avec succès !"
-echo " - Accédez à l'interface web via : http://<IP_Machine>/zabbix"
+echo " - Accédez à l'interface web via : http://$SERVER_IP/zabbix"
 echo " les Identifiants par défaut : Admin / zabbix"
