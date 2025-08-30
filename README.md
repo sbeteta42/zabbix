@@ -50,11 +50,11 @@ cd zabbix
 - Surveiller les métriques (CPU, mémoire, réseau…)
 
 ## 🖥️ Usage basique
-UI Web : http://<zabbix_ip>/zabbix
+UI Web : http://$SERVER_IP/zabbix
 ## 🌐 Accès à l'interface Web
 URL après installation :
 
-http://<IP_Machine>/zabbix
+http://$SERVER_IP/zabbix
 
 Identifiants par défaut :
 ```
