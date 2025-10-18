@@ -39,6 +39,7 @@
 git clone https://github.com/sbeteta42/zabbix.git
 cd zabbix
 # Exécuter le script d’installation
+chmod +x install_zabbix_debian12.sh
 ./install_zabbix_debian12.sh
 ```
 ---
@@ -65,6 +66,7 @@ Mot de passe : zabbix
 - `systemctl status zabbix-server zabbix-agent apache2`
 - Vérifier l’accès Web et terminer l’assistant
 - Ajuster le fuseau horaire PHP/Apache si nécessaire
+- Faire un "dkpg-reconfigure locales" et sélectionner "all" ; choisir ensuite la langue de votre OS en cours
 
 ## 💡 Dépannage rapide
 - Problème d'accès Web : vérifier le port 80 (firewall, NAT)
