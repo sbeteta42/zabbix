@@ -7,7 +7,7 @@ Exécution (en admin):
 param(
   [Parameter(Mandatory=$true)] [string]$ServerIP,
   [Parameter(Mandatory=$false)] [string]$Hostname = $env:COMPUTERNAME,
-  [Parameter(Mandatory=$false)] [string]$MsiUrl = "https://cdn.zabbix.com/zabbix/binaries/stable/7.0/7.0.0/zabbix_agent-7.0.0-windows-amd64-openssl.msi",
+  [Parameter(Mandatory=$false)] [string]$MsiUrl = "https://cdn.zabbix.com/zabbix/binaries/stable/7.4/7.4.11/zabbix_agent-7.4.11-windows-amd64-openssl.msi",
   [Parameter(Mandatory=$false)] [string]$TlsPsk = "",
   [Parameter(Mandatory=$false)] [string]$TlsPskIdentity = ""
 )
